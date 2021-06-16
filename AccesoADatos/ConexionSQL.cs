@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using Autenticacion;
 using System.Data.SqlClient;
 
 namespace AccesoADatos

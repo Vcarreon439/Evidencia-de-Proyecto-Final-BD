@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using Autenticacion;
 using System.Text;
 using Funcionalidad_Formularios;
 using System.Threading.Tasks;
@@ -19,11 +18,6 @@ namespace Forma_Principal
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public frmPrincipal(TipoUsuario.TypeUser type)
-        {
-            InitializeComponent();
         }
 
         public frmPrincipal()
