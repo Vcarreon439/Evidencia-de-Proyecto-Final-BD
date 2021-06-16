@@ -363,5 +363,112 @@ namespace AccesoADatos
         }
         #endregion
 
+        #region PagosTipo
+
+            public bool ActualizarPagoTipo(TipoPago tipo)
+            {
+                try
+                {
+                    using (SqlConnection conexion = ObtenerConexion())
+                    {
+                        conexion.Open();
+
+                        string comando = "Update TIPO Set Descripcion = @decripcion Where CODIGO_TIPO = @cod";
+                        SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                        cmd.Parameters.Add("@descripcion", SqlDbType.VarChar);
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+
+                        cmd.Parameters["@cod"].Value = tipo.codigo;
+                        cmd.Parameters["@numColab"].Value = tipo.descripcion;
+
+                        return cmd.ExecuteNonQuery() != 0;
+                    }
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+
+            public bool EliminarTipoPago(TipoPago tipo)
+            {
+                try
+                {
+                    using (SqlConnection conexion = ObtenerConexion())
+                    {
+                        conexion.Open();
+                        string comando = "Delete From TIPO Where CODIGO_TIPO = @cod";
+                        SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+                        cmd.Parameters["@cod"].Value = tipo.codigo;
+
+                        return cmd.ExecuteNonQuery() != 0;
+                    }
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+            }
+
+
+            public bool InsertarTipo(TipoPago tipo)
+            {
+                try
+                {
+                    using (SqlConnection conexion = ObtenerConexion())
+                    {
+                        conexion.Open();
+                        string comando = "Insert into TIPO Values (@cod, @decripcion)";
+                        SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+                        cmd.Parameters.Add("@decripcion", SqlDbType.VarChar);
+
+                        cmd.Parameters["@cod"].Value = tipo.codigo;
+                        cmd.Parameters["@decripcion"].Value = tipo.descripcion;
+
+                        return cmd.ExecuteNonQuery() != 0;
+                    }
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            public DataTable MostrarTIPO()
+            {
+                try
+                {
+                    using (SqlConnection conexion = ObtenerConexion())
+                    {
+                        conexion.Open();
+
+                        using (SqlDataAdapter adaptador = new SqlDataAdapter("Select * From Tipo", conexion))
+                        {
+                            DataTable tabla = new DataTable();
+                            adaptador.Fill(tabla);
+
+                            return tabla;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    throw;
+                }
+            }
+
+        #endregion
+
     }
 }

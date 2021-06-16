@@ -77,6 +77,30 @@ namespace Dominio
                 return usuario.MostrarPagos();
             }
         #endregion
+
+        #region Tipo
+
+        public bool InsertarTipo(TipoPago tipo)
+        {
+            return usuario.InsertarTipo(tipo);
+        }
+
+        public bool ActualizarTipo(TipoPago tipo)
+        {
+            return usuario.ActualizarPagoTipo(tipo);
+        }
+
+        public bool EliminarTipoPago(TipoPago tipo)
+        {
+            return usuario.EliminarTipoPago(tipo);
+        }
+
+        public DataTable MostrarTipo()
+        {
+            return usuario.MostrarTIPO();
+        }
+
+        #endregion
     }
 
 }

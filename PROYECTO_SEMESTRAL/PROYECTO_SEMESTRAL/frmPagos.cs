@@ -46,7 +46,7 @@ namespace PROYECTO_SEMESTRAL
 
                         if (txtCantidad.Text != "")
                         {
-                            Pago.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                            Pago.Cantidad = Convert.ToDouble(txtCantidad.Text);
                             Pago.Fecha = $"{dtmFecha.Value.Month}-{dtmFecha.Value.Day}-{dtmFecha.Value.Year}";
 
 
