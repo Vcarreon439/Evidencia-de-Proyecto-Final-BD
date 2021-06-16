@@ -683,5 +683,129 @@ namespace AccesoADatos
 
         #endregion
 
+
+        #region Proyecto
+
+        public bool ActualizarProyecto(Proyecto proyecto)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    string comando = "Update PROYECTO Set INICIO = @inicio, FIN = @fin, DESCRIPCION = @descripcion, COSTO = @costo, CODIGO_CLIENTE=@codcliente Where CODIGO_PROYECTO = @codProyecto";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@inicio", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@fin", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@descripcion", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@costo", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codcliente", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codProyecto", SqlDbType.VarChar);
+
+
+                    cmd.Parameters["@inicio"].Value = proyecto.inicio;
+                    cmd.Parameters["@fin"].Value = proyecto.fin;
+                    cmd.Parameters["@descripcion"].Value = proyecto.Descripcion;
+                    cmd.Parameters["@costo"].Value = proyecto.Costo;
+                    cmd.Parameters["@codcliente"].Value = proyecto.codCliente;
+                    cmd.Parameters["@codProyecto"].Value = proyecto.codProyecto;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool EliminarProyecto(Proyecto tipo)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+                    string comando = "Delete From PROYECTO Where CODIGO_PROYECTO = @cod";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+                    cmd.Parameters["@cod"].Value = tipo.codProyecto;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
+
+
+        public bool InsertarProyecto(Proyecto proyecto)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+                    string comando = "Insert into PROYECTO Values (@codProyecto, @inicio, @fin, @descripcion, @costo, @codCliente)";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@inicio", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@fin", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@descripcion", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@costo", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codcliente", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codProyecto", SqlDbType.VarChar);
+
+                    cmd.Parameters["@inicio"].Value = proyecto.inicio;
+                    cmd.Parameters["@fin"].Value = proyecto.fin;
+                    cmd.Parameters["@descripcion"].Value = proyecto.Descripcion;
+                    cmd.Parameters["@costo"].Value = proyecto.Costo;
+                    cmd.Parameters["@codcliente"].Value = proyecto.codCliente;
+                    cmd.Parameters["@codProyecto"].Value = proyecto.codProyecto;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public DataTable MostrarProyecto()
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    using (SqlDataAdapter adaptador = new SqlDataAdapter("Select * From PROYECTO", conexion))
+                    {
+                        DataTable tabla = new DataTable();
+                        adaptador.Fill(tabla);
+
+                        return tabla;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

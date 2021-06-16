@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using AccesoADatos;
 using BibliotecaDeClases;
 
@@ -146,6 +147,30 @@ namespace Dominio
         public DataTable MostrarProyectoColaboradores()
         {
             return usuario.MostrarProyectoColaboradores();
+        }
+
+        #endregion
+
+        #region Proyecto
+
+        public bool InsertarProyecto(Proyecto proyecto)
+        {
+            return usuario.InsertarProyecto(proyecto);
+        }
+
+        public bool ActualizarProyecto(Proyecto proyecto)
+        {
+            return usuario.ActualizarProyecto(proyecto);
+        }
+
+        public bool EliminarProyecto(Proyecto proyecto)
+        {
+            return usuario.EliminarProyecto(proyecto);
+        }
+
+        public DataTable MostrarProyecto()
+        {
+            return usuario.MostrarProyecto();
         }
 
         #endregion
