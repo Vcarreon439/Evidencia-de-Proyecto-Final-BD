@@ -700,7 +700,7 @@ namespace AccesoADatos
                     cmd.Parameters.Add("@inicio", SqlDbType.VarChar);
                     cmd.Parameters.Add("@fin", SqlDbType.VarChar);
                     cmd.Parameters.Add("@descripcion", SqlDbType.VarChar);
-                    cmd.Parameters.Add("@costo", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@costo", SqlDbType.Money);
                     cmd.Parameters.Add("@codcliente", SqlDbType.VarChar);
                     cmd.Parameters.Add("@codProyecto", SqlDbType.VarChar);
 
@@ -760,7 +760,7 @@ namespace AccesoADatos
                     cmd.Parameters.Add("@inicio", SqlDbType.VarChar);
                     cmd.Parameters.Add("@fin", SqlDbType.VarChar);
                     cmd.Parameters.Add("@descripcion", SqlDbType.VarChar);
-                    cmd.Parameters.Add("@costo", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@costo", SqlDbType.Money);
                     cmd.Parameters.Add("@codcliente", SqlDbType.VarChar);
                     cmd.Parameters.Add("@codProyecto", SqlDbType.VarChar);
 

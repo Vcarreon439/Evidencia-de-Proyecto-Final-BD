@@ -162,10 +162,5 @@ namespace PROYECTO_SEMESTRAL
             Vaciar();
             ActualizarData();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
