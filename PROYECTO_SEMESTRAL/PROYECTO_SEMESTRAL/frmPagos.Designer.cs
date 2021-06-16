@@ -39,43 +39,47 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNumeroPago
             // 
-            this.txtNumeroPago.Location = new System.Drawing.Point(137, 23);
+            this.txtNumeroPago.Location = new System.Drawing.Point(126, 20);
             this.txtNumeroPago.Name = "txtNumeroPago";
-            this.txtNumeroPago.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroPago.Size = new System.Drawing.Size(111, 20);
             this.txtNumeroPago.TabIndex = 0;
             this.txtNumeroPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtConcepto
             // 
-            this.txtConcepto.Location = new System.Drawing.Point(137, 113);
+            this.txtConcepto.Location = new System.Drawing.Point(17, 108);
+            this.txtConcepto.Multiline = true;
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(100, 20);
+            this.txtConcepto.Size = new System.Drawing.Size(220, 51);
             this.txtConcepto.TabIndex = 1;
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(137, 215);
+            this.txtCantidad.Location = new System.Drawing.Point(86, 229);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(151, 20);
             this.txtCantidad.TabIndex = 2;
             // 
             // txtIdColaborador
             // 
-            this.txtIdColaborador.Location = new System.Drawing.Point(137, 63);
+            this.txtIdColaborador.Location = new System.Drawing.Point(137, 45);
             this.txtIdColaborador.Name = "txtIdColaborador";
             this.txtIdColaborador.Size = new System.Drawing.Size(100, 20);
             this.txtIdColaborador.TabIndex = 3;
             // 
             // dtmFecha
             // 
-            this.dtmFecha.Location = new System.Drawing.Point(137, 165);
+            this.dtmFecha.Location = new System.Drawing.Point(66, 182);
             this.dtmFecha.Name = "dtmFecha";
-            this.dtmFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtmFecha.Size = new System.Drawing.Size(171, 20);
             this.dtmFecha.TabIndex = 4;
             // 
             // label1
@@ -90,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 66);
+            this.label2.Location = new System.Drawing.Point(14, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 6;
@@ -99,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 120);
+            this.label3.Location = new System.Drawing.Point(14, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 7;
@@ -108,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(75, 172);
+            this.label4.Location = new System.Drawing.Point(14, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 8;
@@ -117,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 218);
+            this.label5.Location = new System.Drawing.Point(18, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 9;
@@ -126,16 +130,46 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(348, 14);
+            this.dataGridView1.Location = new System.Drawing.Point(253, 14);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 474);
+            this.dataGridView1.Size = new System.Drawing.Size(335, 474);
             this.dataGridView1.TabIndex = 10;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(14, 443);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(223, 35);
+            this.btnEliminar.TabIndex = 19;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(14, 402);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(223, 35);
+            this.btnActualizar.TabIndex = 18;
+            this.btnActualizar.Text = "Editar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(14, 361);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(223, 35);
+            this.btnAgregar.TabIndex = 17;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
             // frmPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 500);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -169,5 +203,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,25 @@ namespace PROYECTO_SEMESTRAL
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (txtCodCliente.Text != "")
+            {
+                if (txtDomicilio.Text != "")
+                {
+                    if (txtRazonSocial.Text != "")
+                    {
+                        if (txtTelefono.Text != "")
+                        {
 
+
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Validar()
+        {
+            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
