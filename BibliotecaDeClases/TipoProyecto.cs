@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public class TipoPago
+    public class TipoProyecto
     {
-        public string NumPago { get; set; }
-        public string CodigoTipo { get; set; }
+        public string codigo { get; set; }
+        public string descripcion { get; set; }
     }
 }

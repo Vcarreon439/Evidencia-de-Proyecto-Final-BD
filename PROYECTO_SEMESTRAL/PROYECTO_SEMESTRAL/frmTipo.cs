@@ -10,6 +10,7 @@ namespace PROYECTO_SEMESTRAL
         public frmTipo()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -19,7 +20,7 @@ namespace PROYECTO_SEMESTRAL
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            TipoPago tipo = new TipoPago();
+            TipoProyecto tipo = new TipoProyecto();
 
             if (txtCodigoTipo.Text != "")
             {
@@ -62,7 +63,7 @@ namespace PROYECTO_SEMESTRAL
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            TipoPago tipo = new TipoPago();
+            TipoProyecto tipo = new TipoProyecto();
 
             if (txtCodigoTipo.Text != "")
             {
@@ -96,7 +97,7 @@ namespace PROYECTO_SEMESTRAL
 
             if (txtCodigoTipo.Text != "")
             {
-                tipo.codigo = txtCodigoTipo.Text;
+                tipo.CodigoTipo = txtCodigoTipo.Text;
 
                 ModeloDUsuario obj = new ModeloDUsuario();
 
@@ -115,6 +116,17 @@ namespace PROYECTO_SEMESTRAL
         private void frmTipo_Load(object sender, EventArgs e)
         {
             ActualizarData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtCodigoTipo.Text = dataGridView1.SelectedCells[0].Value.ToString();
+                txtDescripcion.Text = dataGridView1.SelectedCells[1].Value.ToString();
+                
+                txtCodigoTipo.Enabled = false;
+            }
         }
     }
 }

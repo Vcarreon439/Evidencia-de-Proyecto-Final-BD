@@ -80,14 +80,38 @@ namespace Dominio
 
         #region Tipo
 
-        public bool InsertarTipo(TipoPago tipo)
+        public bool InsertarTipo(TipoProyecto tipo)
         {
-            return usuario.InsertarTipo(tipo);
+            return usuario.InsertarTipoProyecto(tipo);
         }
 
-        public bool ActualizarTipo(TipoPago tipo)
+        public bool ActualizarTipo(TipoProyecto tipo)
         {
-            return usuario.ActualizarPagoTipo(tipo);
+            return usuario.ActualizarTipoProyecto(tipo);
+        }
+
+        public bool EliminarTipo(TipoProyecto tipo)
+        {
+            return usuario.EliminarTipoProyecto(tipo);
+        }
+
+        public DataTable MostrarTipo()
+        {
+            return usuario.MostrarTipoProyecto();
+        }
+
+        #endregion
+
+        #region TipoPago
+
+        public bool InsertarTipoPago(TipoPago tipo)
+        {
+            return usuario.InsertarTipoPago(tipo);
+        }
+
+        public bool ActualizarTipoPago(TipoPago tipo)
+        {
+            return usuario.ActualizarTipoPago(tipo);
         }
 
         public bool EliminarTipoPago(TipoPago tipo)
@@ -95,12 +119,14 @@ namespace Dominio
             return usuario.EliminarTipoPago(tipo);
         }
 
-        public DataTable MostrarTipo()
+        public DataTable MostrarTipoPago()
         {
-            return usuario.MostrarTIPO();
+            return usuario.MostrarTipoPago();
         }
 
         #endregion
+
+
     }
 
 }
