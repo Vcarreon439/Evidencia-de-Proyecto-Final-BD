@@ -12,6 +12,7 @@ namespace PROYECTO_SEMESTRAL
         public frmClientes()
         {
             InitializeComponent();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -135,11 +136,25 @@ namespace PROYECTO_SEMESTRAL
             txtDomicilio.Text = "";
             txtRazonSocial.Text = "";
             txtTelefono.Text = "";
+            txtCodCliente.Enabled = true;
         }
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
             ActualizarData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtCodCliente.Text = dataGridView1.SelectedCells[0].Value.ToString();
+                txtRazonSocial.Text = dataGridView1.SelectedCells[1].Value.ToString();
+                txtTelefono.Text = dataGridView1.SelectedCells[2].Value.ToString();
+                txtDomicilio.Text = dataGridView1.SelectedCells[3].Value.ToString();
+
+                txtCodCliente.Enabled = false;
+            }
         }
     }
 }

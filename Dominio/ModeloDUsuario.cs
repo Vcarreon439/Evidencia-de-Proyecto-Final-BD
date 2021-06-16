@@ -32,6 +32,8 @@ namespace Dominio
 
         #endregion
 
+        #region Colaborador
+        
         public bool InsertarColaborador(Colaborador colaborador)
         {
             return usuario.InsertarColaborador(colaborador);
@@ -51,6 +53,30 @@ namespace Dominio
         {
             return usuario.MostrarColaborador();
         }
+
+        #endregion
+
+        #region Pagos
+            public bool InsertarPagos(Pagos pago)
+            {
+                return usuario.InsertarPagos(pago);
+            }
+
+            public bool ActualizarPagos(Pagos pago)
+            {
+                return usuario.ActualizarPagos(pago);
+            }
+
+            public bool EliminarPagos(Pagos Pago)
+            {
+                return usuario.EliminarPagos(Pago);
+            }
+
+            public DataTable MostarPagos()
+            {
+                return usuario.MostrarPagos();
+            }
+        #endregion
     }
 
 }
