@@ -577,5 +577,111 @@ namespace AccesoADatos
 
         #endregion
 
+        #region ProyectoColaboradores
+
+        public bool ActualizarProyectoColaboradores(ProyectoColaboradores proyecto)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    string comando = "Update PROYECTO_COLABORADORES Set ID_COLABORADOR = @codColaborador Where CODIGO_PROYECTO = @cod";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codColaborador", SqlDbType.VarChar);
+
+                    cmd.Parameters["@cod"].Value = proyecto.CodProyecto;
+                    cmd.Parameters["@codColaborador"].Value = proyecto.IdColaborador;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool EliminarProyectoColaboradores(ProyectoColaboradores tipo)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+                    string comando = "Delete From PROYECTO_COLABORADORES Where CODIGO_PROYECTO = @cod";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@cod", SqlDbType.VarChar);
+                    cmd.Parameters["@cod"].Value = tipo.CodProyecto;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
+
+
+        public bool InsertarProyectoColaboradores(ProyectoColaboradores colab)
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+                    string comando = "Insert into PROYECTO_COLABORADORES Values (@codProyecto, @codColaborador)";
+                    SqlCommand cmd = new SqlCommand(comando, conexion);
+
+                    cmd.Parameters.Add("@codProyecto", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@codColaborador", SqlDbType.VarChar);
+
+                    cmd.Parameters["@codProyecto"].Value = colab.CodProyecto;
+                    cmd.Parameters["@codColaborador"].Value = colab.IdColaborador;
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show($"Error: { error.Message}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public DataTable MostrarProyectoColaboradores()
+        {
+            try
+            {
+                using (SqlConnection conexion = ObtenerConexion())
+                {
+                    conexion.Open();
+
+                    using (SqlDataAdapter adaptador = new SqlDataAdapter("Select * From PROYECTO_COLABORADORES", conexion))
+                    {
+                        DataTable tabla = new DataTable();
+                        adaptador.Fill(tabla);
+
+                        return tabla;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

@@ -126,6 +126,30 @@ namespace Dominio
 
         #endregion
 
+        #region ProyectoColaboradores
+
+        public bool InsertarProyectoColaboradores(ProyectoColaboradores tipo)
+        {
+            return usuario.InsertarProyectoColaboradores(tipo);
+        }
+
+        public bool ActualizarProyectoColaboradores(ProyectoColaboradores tipo)
+        {
+            return usuario.ActualizarProyectoColaboradores(tipo);
+        }
+
+        public bool EliminarProyectoColaboradores(ProyectoColaboradores tipo)
+        {
+            return usuario.EliminarProyectoColaboradores(tipo);
+        }
+
+        public DataTable MostrarProyectoColaboradores()
+        {
+            return usuario.MostrarProyectoColaboradores();
+        }
+
+        #endregion
+
 
     }
 
