@@ -9,7 +9,7 @@ namespace Dominio
 
         public bool InsertarCliente(Cliente cliente)
         {
-            return InsertarCliente(cliente);
+            return usuario.InsertarCliente(cliente);
         }
 
     }
